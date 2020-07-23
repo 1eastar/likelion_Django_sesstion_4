@@ -16,18 +16,24 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+      {% if user.is_authenticated %}
         <li class="nav-item active">
-          <a class="nav-link" href="{% url 'home' %}">Blog</a>
+          <a class="nav-link" href="#">Blog</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="{% url 'new' %}">글쓰기</a>
+          <a class="nav-link" href="#">글쓰기</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">로그아웃</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">로그인</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">회원가입</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+      {% endif %}
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
